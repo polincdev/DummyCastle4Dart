@@ -35,7 +35,7 @@ The library provides the following features:
 
 One simple object is enough to handle all the operations and methods.
 ```dart
-import 'package:dummycastle/dummycastle.dart';
+import 'package:dummycastle/pl/polinc/dummycastle/dummycastle.dart';
 ...
 DummyCastle dummyCastle = new DummyCastle();
 ...
@@ -105,5 +105,8 @@ dummyCastle.reset();
 
 This library is an official port fo Java version which can be found here:
 https://github.com/polincdev/DummyCastle
+
+The Dart/FLutter versio is available here:
+https://github.com/polincdev/DummyCastle4Dart
 
 The versions remain synced.
