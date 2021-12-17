@@ -106,7 +106,7 @@ dummyCastle.reset();
 This library is an official port fo Java version which can be found here:
 https://github.com/polincdev/DummyCastle
 
-The Dart/FLutter versio is available here:
+The Dart/FLutter version is available here:
 https://github.com/polincdev/DummyCastle4Dart
 
 The versions remain synced.

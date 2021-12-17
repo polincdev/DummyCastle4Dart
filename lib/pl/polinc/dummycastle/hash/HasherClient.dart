@@ -51,7 +51,7 @@ class HasherClient {
       seed = (seed ^ salt[i]);
     }
     p = (seed % plen);
-    for ((i = 0); i < ilen; i++) {
+    for ((i = 0); i < olen; i++) {
       p++;
       if (p >= plen) {
         p = 0;
@@ -61,7 +61,8 @@ class HasherClient {
         seed = (pass[p] ^ seed);
       }
       rval = (pass[p] ^ seed);
-      obuf[n % olen] = (ibuf[i] ^ rval);
+      obuf[n % olen] = (ibuf[i% ilen] ^ rval);
+
       n++;
     }
     return ilen;

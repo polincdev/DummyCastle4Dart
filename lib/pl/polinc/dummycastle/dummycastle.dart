@@ -663,6 +663,46 @@ class DummyCastle {
     return this;
   }
 
+ ///Hashes(reduces) a provided text into a 8 characters string. The result may be
+  ///obtained using getResult() method.
+  ///
+  ///param textToHash to hash. Must not be null nor empty.
+  ///return this object for chaining.
+  ///
+  DummyCastle hashToStrWithTextAndLength(String textToHash,int lengthInChars) {
+    if (textToHash == null || textToHash.isEmpty || lengthInChars <= 0) {
+      exception = new Exception("Empty, null or <0 argument");
+      error = true;
+      return this;
+    }
+    try {
+      resultBytes = HasherClient.hash(Coder.getBytesSimple(textToHash), lengthInChars);
+    } on Exception catch (e) {
+      setUpError(e);
+    }
+    return this;
+  }
+
+  ///Hashes(reduces) a text internally into a string. The result may be obtained
+  ///using getResult() method.
+  ///
+  ///lengthInChars size of the result.
+  ///return this object for chaining.
+  ///
+  DummyCastle hashToStrWithLength(int lengthInChars) {
+    if ( resultBytes == null || resultBytes.length == 0 || lengthInChars <= 0 ) {
+      exception = new Exception("Empty, null or <0 argument");
+      error = true;
+      return this;
+    }
+    try {
+      resultBytes = HasherClient.hash(resultBytes, lengthInChars);
+    } on Exception catch (e) {
+      setUpError(e);
+    }
+    return this;
+  }
+
   ///Shuffles randomly characters internally.
   ///
   ///param seed - key data used to shuffle
